@@ -1,0 +1,34 @@
+<div class="surface-ground px-4 py-5 md:px-6 lg:px-8">
+    <h2 class="text-xl font-bold mb-4">Public Repositories on GitHub</h2>
+    <p class="text-lg mb-4">In here you'll find a collection of my public repositories. <br>
+        Feel free to explore them and check out the source code. <br> Click on the repository name to learn more about
+        each
+        project.</p>
+    <div class="grid">
+        <div class="col-12 md:col-6 lg:col-3" *ngFor="let repo of repositories">
+            <div class="surface-card shadow-2 p-3 border-round">
+                <div class="flex justify-content-between mb-3">
+                    <div>
+                        <span class="text-lg mb-5">
+                            {{ repo.name }}
+                        </span>
+                        <br><br>
+                        <div class="block font-light">
+                            <p>{{repo.description}}</p>
+                        </div><br><br>
+                        <div class="text">Language: {{ repo.language }}
+                        </div>
+                        <br>
+
+                        <br>
+                        <div>
+                            <a class="text-primary" [href]="repo.html_url" target="_blank">View on GitHub</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
