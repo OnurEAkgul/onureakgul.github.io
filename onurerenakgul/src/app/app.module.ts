@@ -2,14 +2,15 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CardModule } from 'primeng/card';
 import { AppRoutingModule } from './app-routing.module';
-import { AppLayoutModule } from 'src/layout/app.layout.module';
+import { AppLayoutModule } from './core/layout/app.layout.module';
 
 import { AppComponent } from './app.component';
-import { AboutmeComponent } from './pages/aboutme/aboutme.component';
-import { HomeComponent } from './pages/home/home.component';
-import { ContactComponent } from './pages/contact/contact.component';
-import { MyLinksComponent } from './pages/my-links/my-links.component';
-import { MyProjectsComponent } from './pages/my-projects/my-projects.component';
+import { AboutmeComponent } from './core/pages/aboutme/aboutme.component';
+import { HomeComponent } from './core/pages/home/home.component';
+import { ContactComponent } from './core/pages/contact/contact.component';
+import { MyLinksComponent } from './core/pages/my-links/my-links.component';
+import { MyProjectsComponent } from './core/pages/my-projects/my-projects.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,13 @@ import { MyProjectsComponent } from './pages/my-projects/my-projects.component';
     MyLinksComponent,
     MyProjectsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, AppLayoutModule, CardModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    AppLayoutModule,
+    CardModule,
+    FormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

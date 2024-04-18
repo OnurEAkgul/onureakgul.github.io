@@ -1,0 +1,47 @@
+<div class="col-12 mt-5 card">
+    <h3>Contact me</h3>
+    <p class="text-900 font-bold">Send me an Email</p>
+    <form (ngSubmit)="sendMessage()">
+        <div class="grid flex-column md:flex-row formgrid grid-nogutter mt-6" style="row-gap: 2rem; column-gap: 2rem;">
+            <div class="field col">
+                <label for="name" class="block text-indigo-300 font-bold">Name</label>
+                <span class="p-input-icon-left w-full" style="height: 3.5rem;">
+                    <i class="pi pi-user" style="left: 1.5rem;"></i>
+                    <input type="text" id="name" name="Name" pinputtext placeholder="Name" [(ngModel)]="name"
+                        class="p-inputtext p-component p-element w-full px-7 text-900 font-semibold ng-untouched ng-pristine ng-valid"
+                        style="height: 3.5rem;">
+                </span>
+            </div>
+            <div class="field col">
+                <label for="Subject" class="block text-indigo-300 font-bold">Subject</label>
+                <span class="p-input-icon-left w-full" style="height: 3.5rem;">
+                    <i class="pi pi-envelope" style="left: 1.5rem;"></i>
+                    <input type="text" id="Subject" name="Subject" pinputtext placeholder="Subject"
+                        [(ngModel)]="Subject"
+                        class="p-inputtext p-component p-element w-full px-7 text-900 font-semibold ng-untouched ng-pristine ng-valid"
+                        style="height: 3.5rem;">
+                </span>
+            </div>
+            <div class="field col-12 flex flex-column">
+                <label for="message" class="block text-indigo-300 font-bold">Message</label>
+                <textarea id="message" name="message" rows="5" pinputtextarea [(ngModel)]="message"
+                    class="p-inputtextarea p-inputtext p-component p-element w-full surface-border p-4 text-900 font-semibold border-round ng-untouched ng-pristine ng-valid p-inputtextarea-resizable"
+                    style="height: 146px; overflow: hidden;"></textarea>
+
+                <div class="flex justify-content-end mt-5">
+                    <button type="button" (click)="clear()" pbutton label="Clear"
+                        class="p-element p-button-primary border-round p-button p-component">
+                        <span class="p-button-label">Clear</span>
+                    </button>
+                    <button type="submit" pbutton label="Send Message"
+                        class="p-element p-button-primary border-round p-button p-component ml-3">
+                        <span class="p-button-label">Send Message</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+    </form>
+</div>

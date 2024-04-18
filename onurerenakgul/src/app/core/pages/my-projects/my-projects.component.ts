@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GithubService } from 'src/app/services/github/github.service';
+import { GithubService } from '../../services/github/github.service';
 
 @Component({
   selector: 'app-my-projects',
@@ -18,6 +18,7 @@ export class MyProjectsComponent {
   loadRepositories() {
     this.githubService.GetGithubProjects().subscribe((repos: any[]) => {
       this.repositories = repos;
+      console.log(this.repositories);
     });
   }
 }
