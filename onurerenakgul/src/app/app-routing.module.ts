@@ -10,7 +10,7 @@ import { MyProjectsComponent } from './core/pages/my-projects/my-projects.compon
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'Personal-Web-Page',
     component: AppLayoutComponent,
     children: [
       {
