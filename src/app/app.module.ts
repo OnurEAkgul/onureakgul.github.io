@@ -13,6 +13,7 @@ import { ContactComponent } from './core/pages/contact/contact.component';
 import { MyLinksComponent } from './core/pages/my-links/my-links.component';
 import { MyProjectsComponent } from './core/pages/my-projects/my-projects.component';
 
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,7 @@ import { MyProjectsComponent } from './core/pages/my-projects/my-projects.compon
     FormsModule,
     LazyLoadImageModule,
   ],
-  providers: [],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
