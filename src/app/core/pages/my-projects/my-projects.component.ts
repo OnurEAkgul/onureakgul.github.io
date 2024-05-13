@@ -18,7 +18,6 @@ export class MyProjectsComponent {
   loadRepositories() {
     this.githubService.GetGithubProjects().subscribe((repos: any[]) => {
       this.repositories = repos;
-      console.log(this.repositories);
     });
   }
 }
