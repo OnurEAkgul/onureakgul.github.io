@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://onureakgul.github.io/sitemap.xml

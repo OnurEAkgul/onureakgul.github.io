@@ -1,27 +1,107 @@
-# Onurerenakgul
+# Onur Eren Akgül — Portfolio
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.12.
+Personal portfolio site for [onureakgul.github.io](https://onureakgul.github.io/).
 
-## Development server
+Built with **Angular 20**, **PrimeNG 20**, **Tailwind CSS v4**, and static prerendering (SSG) for GitHub Pages.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+- Bilingual routes: `/en/...` and `/tr/...`
+- Path-based routing (no hash) with prerendered HTML for SEO and F5 deep-links
+- CV-driven pages: Home, About, Experience, Skills, Projects, Links, Contact
+- Contact form via **EmailJS** + PrimeNG Toast feedback
+- Dark theme with Outfit / Manrope typography
+- `robots.txt`, `sitemap.xml`, per-page meta tags and JSON-LD
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Stack
 
-## Build
+| Layer | Tech |
+|-------|------|
+| Framework | Angular 20 (standalone) |
+| UI | PrimeNG 20 (Aura) + PrimeIcons |
+| Styling | Tailwind CSS v4 + `tailwindcss-primeui` |
+| Mail | `@emailjs/browser` |
+| Hosting | GitHub Pages (`docs/`) |
+| Rendering | `@angular/ssr` prerender / SSG |
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Requirements
 
-## Running unit tests
+- Node.js `^20.19` or `^22.12+` (recommended: Node 22 via `nvm use 22`)
+- npm 10+
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Getting started
 
-## Running end-to-end tests
+```bash
+npm install
+npm start
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Open [http://localhost:4200/en](http://localhost:4200/en).
 
-## Further help
+Language switcher in the header toggles between English and Turkish while keeping the current page.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Production build (SSG)
+
+```bash
+npm run build
+```
+
+This command:
+
+1. Prerenders all `/en/*` and `/tr/*` routes
+2. Writes static output to `docs/`
+3. Creates `docs/404.html` (SPA fallback for unknown paths) and `docs/.nojekyll`
+
+## Deploy
+
+GitHub Pages serves the `/docs` folder from the `main` branch.
+
+After a successful build, commit the updated `docs/` output and push to `main`.
+
+## Project structure
+
+```text
+src/app/
+  config/          # EmailJS keys
+  data/            # CV content (en/tr) + UI copy
+  layout/          # Shell / navigation
+  pages/           # Route pages
+  services/        # Language, SEO, Mail
+public/
+  assets/cv/       # Downloadable CVs (PDF)
+  robots.txt
+  sitemap.xml
+scripts/
+  github-pages-fallback.mjs
+docs/              # Built static site for GitHub Pages
+```
+
+## EmailJS setup
+
+Contact form credentials live in [`src/app/config/emailjs.config.ts`](src/app/config/emailjs.config.ts):
+
+- `publicKey`
+- `serviceId`
+- `templateId`
+
+Template variables expected by the app:
+
+| Variable | Source |
+|----------|--------|
+| `title` | Subject field |
+| `name` | Name field |
+| `email` | Visitor email |
+| `message` | Message field |
+| `time` | Auto-generated timestamp |
+
+## Useful scripts
+
+```bash
+npm start          # Dev server
+npm run build      # SSG build → docs/
+npm test           # Unit tests
+```
+
+## License
+
+Private personal portfolio. All rights reserved.

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["skills.component.ts"],
+  "sourcesContent": ["\n    .page-header h1 {\n      font-family: var(--font-display);\n      font-size: clamp(2rem, 5vw, 3.2rem);\n      margin: 0 0 0.5rem;\n      letter-spacing: -0.03em;\n    }\n\n    .page-header p {\n      color: var(--muted);\n      margin: 0 0 1.75rem;\n      max-width: 40rem;\n      line-height: 1.6;\n    }\n\n    .groups {\n      display: grid;\n      gap: 1rem;\n    }\n\n    .group {\n      background: var(--bg-elevated);\n      border: 1px solid var(--line);\n      border-radius: 1.1rem;\n      padding: 1.2rem 1.3rem;\n    }\n\n    h2 {\n      margin: 0 0 0.85rem;\n      font-size: 1.05rem;\n      color: var(--accent);\n    }\n\n    .chips {\n      display: flex;\n      flex-wrap: wrap;\n      gap: 0.45rem;\n    }\n  "],
+  "mappings": ";AACI,CAAA,YAAA;AACE,eAAA,IAAA;AACA,aAAA,MAAA,IAAA,EAAA,GAAA,EAAA;AACA,UAAA,EAAA,EAAA;AACA,kBAAA;AACF;AAEA,CAPA,YAOA;AACE,SAAA,IAAA;AACA,UAAA,EAAA,EAAA;AACA,aAAA;AACA,eAAA;AACF;AAEA,CAAA;AACE,WAAA;AACA,OAAA;AACF;AAEA,CAAA;AACE,cAAA,IAAA;AACA,UAAA,IAAA,MAAA,IAAA;AACA,iBAAA;AACA,WAAA,OAAA;AACF;AAEA;AACE,UAAA,EAAA,EAAA;AACA,aAAA;AACA,SAAA,IAAA;AACF;AAEA,CAAA;AACE,WAAA;AACA,aAAA;AACA,OAAA;AACF;",
+  "names": []
+}

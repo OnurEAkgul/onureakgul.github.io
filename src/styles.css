@@ -1,6 +1,54 @@
-/* You can add global styles to this file, and also import other style files */
-@import "/src/assets/layout/styles/layout/layout.css";
-@import "/node_modules/primeng/resources/primeng.css";
-@import "/node_modules/primeng/resources/primeng.min.css";
-@import "/node_modules/primeicons/primeicons.css";
-@import "/node_modules/primeflex/primeflex.css";
+@import 'tailwindcss';
+@import 'tailwindcss-primeui';
+@import 'primeicons/primeicons.css';
+
+:root {
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+  --bg: #0b0d10;
+  --bg-elevated: rgba(255, 255, 255, 0.045);
+  --ink: #f3efe7;
+  --ink-soft: #d5d0c6;
+  --muted: #9aa3ad;
+  --accent: #c9a66b;
+  --chip: rgba(201, 166, 107, 0.14);
+  --line: rgba(243, 239, 231, 0.1);
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(201, 166, 107, 0.12), transparent 30%),
+    radial-gradient(circle at 88% 0%, rgba(90, 120, 150, 0.14), transparent 28%),
+    linear-gradient(180deg, #10141a 0%, #0b0d10 55%, #090b0e 100%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 40%, transparent);
+  color: var(--ink);
+}

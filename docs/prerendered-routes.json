@@ -1,0 +1,19 @@
+{
+  "routes": {
+    "/": {},
+    "/en": {},
+    "/en/about": {},
+    "/en/contact": {},
+    "/en/experience": {},
+    "/en/links": {},
+    "/en/projects": {},
+    "/en/skills": {},
+    "/tr": {},
+    "/tr/about": {},
+    "/tr/contact": {},
+    "/tr/experience": {},
+    "/tr/links": {},
+    "/tr/projects": {},
+    "/tr/skills": {}
+  }
+}
