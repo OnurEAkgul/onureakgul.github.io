@@ -1,47 +1,26 @@
 import { RenderMode, ServerRoute } from '@angular/ssr';
 
-const langs = [{ lang: 'en' }, { lang: 'tr' }];
+const pages = ['', 'about', 'experience', 'skills', 'projects', 'links', 'contact'] as const;
 
-async function langParams() {
-  return langs;
+function pagePath(prefix: string, page: string): string {
+  if (!page) {
+    return prefix;
+  }
+  return prefix ? `${prefix}/${page}` : page;
 }
 
 export const serverRoutes: ServerRoute[] = [
-  { path: '', renderMode: RenderMode.Prerender },
-  {
-    path: ':lang',
-    renderMode: RenderMode.Prerender,
-    getPrerenderParams: langParams,
-  },
-  {
-    path: ':lang/about',
-    renderMode: RenderMode.Prerender,
-    getPrerenderParams: langParams,
-  },
-  {
-    path: ':lang/experience',
-    renderMode: RenderMode.Prerender,
-    getPrerenderParams: langParams,
-  },
-  {
-    path: ':lang/skills',
-    renderMode: RenderMode.Prerender,
-    getPrerenderParams: langParams,
-  },
-  {
-    path: ':lang/projects',
-    renderMode: RenderMode.Prerender,
-    getPrerenderParams: langParams,
-  },
-  {
-    path: ':lang/links',
-    renderMode: RenderMode.Prerender,
-    getPrerenderParams: langParams,
-  },
-  {
-    path: ':lang/contact',
-    renderMode: RenderMode.Prerender,
-    getPrerenderParams: langParams,
-  },
+  ...pages.map(
+    (page): ServerRoute => ({
+      path: pagePath('', page),
+      renderMode: RenderMode.Prerender,
+    }),
+  ),
+  ...pages.map(
+    (page): ServerRoute => ({
+      path: pagePath('tr', page),
+      renderMode: RenderMode.Prerender,
+    }),
+  ),
   { path: '**', renderMode: RenderMode.Client },
 ];

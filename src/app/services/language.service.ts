@@ -19,4 +19,22 @@ export class LanguageService {
   isValidLang(value: string | null | undefined): value is Lang {
     return value === 'en' || value === 'tr';
   }
+
+  /** Router link segments for the current language (EN = no prefix). */
+  link(...segments: string[]): string[] {
+    const path = segments.filter(Boolean);
+    if (this.langSignal() === 'tr') {
+      return path.length ? ['/', 'tr', ...path] : ['/', 'tr'];
+    }
+    return path.length ? ['/', ...path] : ['/'];
+  }
+
+  /** Absolute site path for SEO/canonical (EN = root). */
+  path(...segments: string[]): string {
+    const path = segments.filter(Boolean).join('/');
+    if (this.langSignal() === 'tr') {
+      return path ? `/tr/${path}` : '/tr';
+    }
+    return path ? `/${path}` : '/';
+  }
 }

@@ -91,6 +91,6 @@ export class LinksComponent implements OnInit {
   readonly ui = this.language.ui;
 
   ngOnInit(): void {
-    this.seo.update(this.ui().links.title, this.ui().links.subtitle, `/${this.lang()}/links`);
+    this.seo.update(this.ui().links.title, this.ui().links.subtitle, this.language.path('links'));
   }
 }

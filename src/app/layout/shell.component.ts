@@ -11,7 +11,7 @@ import { LanguageService } from '../services/language.service';
   template: `
     <div class="shell">
       <header class="topbar">
-        <a class="brand" [routerLink]="['/', lang()]">{{ cv().name }}</a>
+        <a class="brand" [routerLink]="language.link()">{{ cv().name }}</a>
 
         <nav class="nav" aria-label="Primary">
           @for (item of navItems(); track item.path) {
@@ -194,7 +194,7 @@ import { LanguageService } from '../services/language.service';
   `,
 })
 export class ShellComponent {
-  private readonly language = inject(LanguageService);
+  readonly language = inject(LanguageService);
   private readonly router = inject(Router);
 
   readonly lang = this.language.lang;
@@ -203,27 +203,40 @@ export class ShellComponent {
   menuOpen = false;
 
   readonly navItems = computed(() => {
-    const lang = this.lang();
     const nav = this.ui().nav;
     return [
-      { path: '', label: nav.home, link: ['/', lang], exact: true },
-      { path: 'about', label: nav.about, link: ['/', lang, 'about'], exact: false },
-      { path: 'experience', label: nav.experience, link: ['/', lang, 'experience'], exact: false },
-      { path: 'skills', label: nav.skills, link: ['/', lang, 'skills'], exact: false },
-      { path: 'projects', label: nav.projects, link: ['/', lang, 'projects'], exact: false },
-      { path: 'links', label: nav.links, link: ['/', lang, 'links'], exact: false },
-      { path: 'contact', label: nav.contact, link: ['/', lang, 'contact'], exact: false },
+      { path: '', label: nav.home, link: this.language.link(), exact: true },
+      { path: 'about', label: nav.about, link: this.language.link('about'), exact: false },
+      {
+        path: 'experience',
+        label: nav.experience,
+        link: this.language.link('experience'),
+        exact: false,
+      },
+      { path: 'skills', label: nav.skills, link: this.language.link('skills'), exact: false },
+      {
+        path: 'projects',
+        label: nav.projects,
+        link: this.language.link('projects'),
+        exact: false,
+      },
+      { path: 'links', label: nav.links, link: this.language.link('links'), exact: false },
+      { path: 'contact', label: nav.contact, link: this.language.link('contact'), exact: false },
     ];
   });
 
   switchLang(next: Lang): void {
     const current = this.router.url.split('?')[0].split('#')[0];
     const parts = current.split('/').filter(Boolean);
-    if (parts.length === 0) {
-      void this.router.navigate(['/', next]);
+    if (parts[0] === 'en' || parts[0] === 'tr') {
+      parts.shift();
+    }
+
+    if (next === 'tr') {
+      void this.router.navigateByUrl(parts.length ? `/tr/${parts.join('/')}` : '/tr');
       return;
     }
-    parts[0] = next;
-    void this.router.navigateByUrl('/' + parts.join('/'));
+
+    void this.router.navigateByUrl(parts.length ? `/${parts.join('/')}` : '/');
   }
 }

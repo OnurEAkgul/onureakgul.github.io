@@ -202,7 +202,7 @@ export class ExperienceComponent implements OnInit {
     this.seo.update(
       this.ui().experience.title,
       this.ui().experience.subtitle,
-      `/${this.lang()}/experience`,
+      this.language.path('experience'),
     );
   }
 }

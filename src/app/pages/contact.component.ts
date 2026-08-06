@@ -147,7 +147,7 @@ export class ContactComponent implements OnInit {
   sending = false;
 
   ngOnInit(): void {
-    this.seo.update(this.ui().contact.title, this.ui().contact.subtitle, `/${this.lang()}/contact`);
+    this.seo.update(this.ui().contact.title, this.ui().contact.subtitle, this.language.path('contact'));
   }
 
   async sendMessage(): Promise<void> {

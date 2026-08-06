@@ -6,7 +6,7 @@ Built with **Angular 20**, **PrimeNG 20**, **Tailwind CSS v4**, and static prere
 
 ## Features
 
-- Bilingual routes: `/en/...` and `/tr/...`
+- Bilingual routes: English at `/...`, Turkish at `/tr/...`
 - Path-based routing (no hash) with prerendered HTML for SEO and F5 deep-links
 - CV-driven pages: Home, About, Experience, Skills, Projects, Links, Contact
 - Contact form via **EmailJS** + PrimeNG Toast feedback
@@ -36,9 +36,9 @@ npm install
 npm start
 ```
 
-Open [http://localhost:4200/en](http://localhost:4200/en).
+Open [http://localhost:4200/](http://localhost:4200/).
 
-Language switcher in the header toggles between English and Turkish while keeping the current page.
+Language switcher in the header toggles between English (root) and Turkish (`/tr`) while keeping the current page.
 
 ## Production build (SSG)
 
@@ -48,7 +48,7 @@ npm run build
 
 This command:
 
-1. Prerenders all `/en/*` and `/tr/*` routes
+1. Prerenders all English (`/*`) and Turkish (`/tr/*`) routes
 2. Writes static output to `docs/`
 3. Creates `docs/404.html` (SPA fallback for unknown paths) and `docs/.nojekyll`
 

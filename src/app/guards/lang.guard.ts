@@ -1,16 +1,14 @@
+import { CanActivateFn } from '@angular/router';
 import { inject } from '@angular/core';
-import { CanActivateFn, Router } from '@angular/router';
+import { Lang } from '../data/cv.model';
 import { LanguageService } from '../services/language.service';
 
-export const langGuard: CanActivateFn = (route) => {
-  const language = inject(LanguageService);
-  const router = inject(Router);
-  const lang = route.paramMap.get('lang');
+function setLang(lang: Lang): CanActivateFn {
+  return () => {
+    inject(LanguageService).setLang(lang);
+    return true;
+  };
+}
 
-  if (!language.isValidLang(lang)) {
-    return router.createUrlTree(['/en']);
-  }
-
-  language.setLang(lang);
-  return true;
-};
+export const enLangGuard = setLang('en');
+export const trLangGuard = setLang('tr');

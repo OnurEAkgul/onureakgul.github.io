@@ -17,12 +17,12 @@ import { SeoService } from '../services/seo.service';
         <div class="cta">
           <p-button
             [label]="ui().home.ctaProjects"
-            [routerLink]="['/', lang(), 'projects']"
+            [routerLink]="language.link('projects')"
             icon="pi pi-briefcase"
           />
           <p-button
             [label]="ui().home.ctaContact"
-            [routerLink]="['/', lang(), 'contact']"
+            [routerLink]="language.link('contact')"
             [outlined]="true"
             icon="pi pi-envelope"
           />
@@ -152,7 +152,7 @@ import { SeoService } from '../services/seo.service';
   `,
 })
 export class HomeComponent implements OnInit {
-  private readonly language = inject(LanguageService);
+  readonly language = inject(LanguageService);
   private readonly seo = inject(SeoService);
 
   readonly lang = this.language.lang;
@@ -162,6 +162,11 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     const cv = this.cv();
     const ui = this.ui();
-    this.seo.update(ui.nav.home, ui.meta.defaultDescription, `/${this.lang()}`);
+    this.seo.update(
+      `${cv.name} | Full Stack Developer — Angular & .NET`,
+      ui.meta.defaultDescription,
+      this.language.path(),
+      { absoluteTitle: true },
+    );
   }
 }

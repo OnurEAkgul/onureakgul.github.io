@@ -107,7 +107,7 @@ export class ProjectsComponent implements OnInit {
     this.seo.update(
       this.ui().projects.title,
       this.ui().projects.subtitle,
-      `/${this.lang()}/projects`,
+      this.language.path('projects'),
     );
   }
 }

@@ -72,7 +72,7 @@ export const uiEn: UiCopy = {
   meta: {
     siteName: 'Onur Eren Akgül',
     defaultDescription:
-      'Portfolio of Onur Eren Akgül — Full Stack Developer working with Angular, ASP.NET Core, .NET 8 and PostgreSQL.',
+      'Onur Eren Akgül — Full Stack Developer in Ankara. Portfolio and CV focused on Angular, ASP.NET Core, .NET 8 and PostgreSQL.',
   },
 };
 
@@ -148,6 +148,6 @@ export const uiTr: UiCopy = {
   meta: {
     siteName: 'Onur Eren Akgül',
     defaultDescription:
-      'Onur Eren Akgül portfolyosu — Angular, ASP.NET Core, .NET 8 ve PostgreSQL ile çalışan Full Stack Developer.',
+      'Onur Eren Akgül — Ankara’da Full Stack Developer. Angular, ASP.NET Core, .NET 8 ve PostgreSQL odaklı portfolyo ve özgeçmiş.',
   },
 };

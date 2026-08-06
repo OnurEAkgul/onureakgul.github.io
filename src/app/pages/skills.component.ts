@@ -76,6 +76,6 @@ export class SkillsComponent implements OnInit {
   readonly ui = this.language.ui;
 
   ngOnInit(): void {
-    this.seo.update(this.ui().skills.title, this.ui().skills.subtitle, `/${this.lang()}/skills`);
+    this.seo.update(this.ui().skills.title, this.ui().skills.subtitle, this.language.path('skills'));
   }
 }

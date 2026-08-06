@@ -161,7 +161,7 @@ export class AboutComponent implements OnInit {
     this.seo.update(
       this.ui().about.title,
       this.cv().summary.join(' ').slice(0, 160),
-      `/${this.lang()}/about`,
+      this.language.path('about'),
     );
   }
 }
