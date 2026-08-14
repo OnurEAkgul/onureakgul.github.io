@@ -29,6 +29,11 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "google05b60006d767a7d4.html",
+                "input": "src/app/data",
+                "output": "/"
               }
             ],
             "styles": ["src/styles.css"],
